@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockPaperScissors</title>
+    <style>
+        body{
+            background-color: cadetblue;
+            justify-content: center;
+            align-items: center;
+        }
+        .game{
+            width: 300px;
+            height: 200px;
+            border: 5px solid black;
+            border-radius: 6px;
+            align-items: center;
+            text-align: center;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEukZCpLDyo0w0U7VTGTkNoH_yh8LI1TQ-0A&s);
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="game">
+    <h2>Rock Paper Scissors</h2>
+    <button onclick="play('rock')">Rock</button>
+    <button onclick="play('paper')">Paper</button>
+    <button onclick="play('scissors')">Scissors</button>
+
+    <h3 id="result"></h3>
+    </div>
+
+
+
+ <script>
+    function play(user){
+        let choices=["rock","paper","scissors"];
+        let computer=choices[Math.floor(Math.random()*3)];
+
+
+        let result="";
+
+        if(user===computer){
+            result="its a draw!";
+        }
+        else if(
+            (user==="rock" && computer==="scissors")||
+            (user==="paper" && computer==="rock")||
+            (user==="scissors" && computer==="paper")
+        ){
+            result="You win!!";
+        }
+        else{
+            result="Computer wins!";
+        }
+        document.getElementById("result").innerHTML="You:" + user + "Computer:" + computer + "->" + result;
+    }
+ </script>   
+</body>
+</html>
